@@ -9,7 +9,7 @@ private:
     string password;
     double balance;
 
-private:
+public:
     BankingMonitorSystem(string uname, string pwd, double initial_balance)
         : username(uname), password(pwd), balance(initial_balance) {}
 
