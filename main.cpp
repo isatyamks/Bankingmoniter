@@ -19,18 +19,18 @@ public:
 
     void displayAccountInfo() {
         cout << "Account Information for " << username << ":" << endl;
-        cout << "Balance: $" << fixed << setprecision(2) << balance << endl;
+        cout << "Balance: Rs" << fixed << setprecision(2) << balance << endl;
     }
 
     void deposit(double amount) {
         balance += amount;
-        cout << "Deposit successful. New balance: $" << fixed << setprecision(2) << balance << endl;
+        cout << "Deposit successful. New balance: Rs" << fixed << setprecision(2) << balance << endl;
     }
 
     void withdraw(double amount) {
         if (amount <= balance) {
             balance -= amount;
-            cout << "Withdrawal successful. New balance: $" << fixed << setprecision(2) << balance << endl;
+            cout << "Withdrawal successful. New balance: Rs" << fixed << setprecision(2) << balance << endl;
         } else {
             cout << "Insufficient funds. Withdrawal failed." << endl;
         }
@@ -44,17 +44,49 @@ int main() {
     cout << "Enter your password: ";
     cin >> enteredPassword;
 
-    if (userAccount.authenticate(enteredPassword)) {
+    if (userAccount.authenticate(enteredPassword)) 
+    {
         cout << "Authentication successful. Welcome!" << endl;
 
         userAccount.displayAccountInfo();
 
-        userAccount.deposit(500.0);
-        userAccount.withdraw(200.0);
-    } else {
+        int tempamount;
+        int option;
+        cout<<"Enter\n(1)----> To display the amount\n(2)----> To deposit money\n(3)-----> To withdraw money";
+        cout<<endl;
+
+        cin>>option;
+
+        if(option==1){
+            userAccount.displayAccountInfo();
+            cout<<"\n";
+            cout<<"Thanks :)"<<endl;
+        }
+        else if (option==2){
+            cout<<"Enter the Amount you want to deposit\n";
+            cin>>tempamount;
+            userAccount.deposit(tempamount);
+            cout<<"\n";
+            userAccount.displayAccountInfo();
+
+        }
+        else if(option==3){
+            cout<<"Enter the Amount You want to withdraw\n";
+            cin>>tempamount;
+            userAccount.withdraw(tempamount);
+            cout<<"\n";
+            userAccount.displayAccountInfo();
+
+        }
+        else{
+            cout<<" Error 404"<<endl;
+        }
+    } 
+    
+    else
+    {
         cout << "Authentication failed. Exiting program." << endl;
     }
 
     return 0;
 }
-
