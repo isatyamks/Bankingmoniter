@@ -38,7 +38,7 @@ public:
 };
 
 int main() {
-    BankingMonitorSystem userAccount("Satyam_kumar", "satyam9835.", 50000.0);
+    BankingMonitorSystem userAccount("Satyam_kumar", "satyam9835.", 50000.0); 
 
     string enteredPassword;
     cout << "Enter your password: ";
